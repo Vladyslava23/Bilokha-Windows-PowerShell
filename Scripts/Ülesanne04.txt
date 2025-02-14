@@ -1,0 +1,3 @@
+ nimi: Vladyslava
+ kursus: It24
+ käsk: It24

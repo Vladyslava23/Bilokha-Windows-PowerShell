@@ -1,0 +1,14 @@
+﻿ $computerNane = "AD1"
+  Write-Host "Arvuti: $computerName"
+  $disks = Get-WmiObject Win32_LogicalDisk -Filter "DriveType=3"
+  Write-Host "Kettaid kokku: $($disks.Count)"
+  foreach ($disks in $disks) {
+  $free = [math]::Rounds($disks.FreeSpace /1GB, 2)
+  $total = [math]::Round($disks.Size / 1GB , 2)
+  $freePerc = [math]::Round(($disks.FreeSpace / $disks.Size) * 100, 2)
+  Write-Host "$($disks.DeviceID): $free/$total GB ($freeParc%)"
+  if ($freePerc -lt 50) {Write-Host "** Hakkab täis saama**"}
+  }
+
+
+
